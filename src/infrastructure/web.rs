@@ -1,11 +1,14 @@
 use actix_web::{web, App, HttpServer};
+use crate::presentation::handler::{my_handler, search_handler};
+
+
 
 pub async fn run() -> std::io::Result<()> {
     HttpServer::new(|| {
         App::new()
-            .service(
-                // Defina suas rotas e handlers aqui
-            )
+            .route("/hello", web::get().to(my_handler))
+            .route("/search", web::post().to(search_handler))
+            // Você pode adicionar mais rotas aqui conforme necessário
     })
     .bind("127.0.0.1:8080")?
     .run()

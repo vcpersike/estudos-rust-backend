@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub struct MyValueObject {
-    value: String,
+   pub value: String,
 }
