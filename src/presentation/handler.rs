@@ -1,4 +1,4 @@
-use actix_web::{web, HttpResponse, Responder};
+use actix_web::{web, HttpResponse, Responder, http::StatusCode};
 use crate::application::MyService;
 use crate::domain::{MyEntity, SearchQuery};
 
@@ -14,8 +14,15 @@ pub async fn my_handler() -> impl Responder {
 }
 
 pub async fn search_handler(body: web::Json<SearchQuery>) -> impl Responder {
+    println!("Recebendo pedido de busca: {}", body.query);
     match MyService::search_products(&body.query).await {
-        Ok(products) => HttpResponse::Ok().json(products),
-        Err(_) => HttpResponse::InternalServerError().finish(),
+        Ok(products) => {
+            println!("Produtos encontrados: {}", products.len());
+            HttpResponse::Ok().json(products)
+        },
+        Err(e) => {
+            println!("Erro durante a busca: {}", e);
+            HttpResponse::new(StatusCode::INTERNAL_SERVER_ERROR)
+        },
     }
 }

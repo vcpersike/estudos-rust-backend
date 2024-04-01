@@ -8,9 +8,10 @@ pub async fn run() -> std::io::Result<()> {
         App::new()
             .route("/hello", web::get().to(my_handler))
             .route("/search", web::post().to(search_handler))
+            .route("/holla", web::get().to(my_handler))
             // Você pode adicionar mais rotas aqui conforme necessário
     })
-    .bind("127.0.0.1:8080")?
+    .bind("0.0.0.0:8080")?
     .run()
     .await
 }

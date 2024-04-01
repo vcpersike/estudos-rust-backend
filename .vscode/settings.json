@@ -8,6 +8,7 @@
         "./Cargo.toml"
     ],
     "cSpell.words": [
-        "actix"
+        "actix",
+        "holla"
     ]
 }
