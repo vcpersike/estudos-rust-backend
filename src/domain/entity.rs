@@ -3,7 +3,6 @@ pub struct MyEntity {
     pub name: String,
 }
 
-
 impl MyEntity {
 
     pub fn name(&self) -> &String {

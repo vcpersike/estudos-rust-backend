@@ -6,6 +6,7 @@ pub struct MercadoLivreProduct {
     pub title: String,
     pub price: f64,
     pub currency_id: String,
+    pub available_quantity: i32,
     // Adicione mais campos conforme a resposta da API
 }
 

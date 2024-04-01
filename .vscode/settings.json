@@ -9,6 +9,8 @@
     ],
     "cSpell.words": [
         "actix",
-        "holla"
+        "desserializar",
+        "holla",
+        "reqwest"
     ]
 }
